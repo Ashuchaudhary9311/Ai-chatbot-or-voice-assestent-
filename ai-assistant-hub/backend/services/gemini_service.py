@@ -100,11 +100,15 @@ class GeminiService:
 
     def _call_api(self, api_url: str, contents: list, model: str) -> str:
         """Make the actual HTTP request to Gemini with retry logic."""
+        system_instruction = {
+            "parts": [{"text": "You are a voice and chat assistant. Keep your responses very short, to the point, and maximum 1-2 lines long. Do NOT use any special characters, markdown formatting, asterisks, or emojis. Provide plain text only."}]
+        }
+        
         for attempt in range(self.max_retries + 1):
             try:
                 response = requests.post(
                     f"{api_url}?key={self.api_key}",
-                    json={"contents": contents},
+                    json={"system_instruction": system_instruction, "contents": contents},
                     timeout=self.timeout_seconds,
                 )
 

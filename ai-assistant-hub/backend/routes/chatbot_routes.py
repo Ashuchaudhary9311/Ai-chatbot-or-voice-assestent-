@@ -4,8 +4,8 @@ Chatbot & Voice Assistant routes.
 Both the chatbot UI and the voice assistant UI hit the same /api/chat
 endpoint - the only difference is whether the frontend captured the
 message via typing or via the browser's SpeechRecognition API. Keeping
-one endpoint avoids duplicating the Gemini call logic for two "modes".
-"""
+one endpoint avoids duplicating the Gemini call logic for two "modes"."""
+
 
 import logging
 from flask import Blueprint, request, jsonify
@@ -25,7 +25,12 @@ def chat():
 
     Request body:
         {
-            "message": "Hello AI",
+            "message": "You are a smart and friendly AI assistant for users in India."
+                        "Respond in 1-2 short sentences only. Be very concise."
+                        "Talk like a real human: casual, friendly, and natural."
+                        "Use simple language. No special characters or references."
+                        "Focus on India's context. Give direct, accurate answers."
+
             "history": [{"role": "user", "text": "..."}, {"role": "model", "text": "..."}]
         }
 
