@@ -1,0 +1,145 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #0a0e27;
+  color: #f1f5f9;
+}
+
+.app-container {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+.background-glow {
+  position: fixed;
+  top: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 900px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(0, 217, 255, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.app-header {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 900px;
+  padding: 28px 24px 0;
+}
+
+.app-title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.app-logo {
+  color: #00ffcc;
+  font-size: 1.4rem;
+  filter: drop-shadow(0 0 8px rgba(0, 255, 204, 0.6));
+}
+
+.app-title {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+  letter-spacing: 1px;
+  margin: 0;
+  background: linear-gradient(135deg, #00d9ff, #00ffcc);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.status-badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 255, 204, 0.08);
+  border: 1px solid rgba(0, 255, 204, 0.3);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #00ffcc;
+  letter-spacing: 0.5px;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #00ffcc;
+  box-shadow: 0 0 8px rgba(0, 255, 204, 0.9);
+  animation: status-blink 1.8s infinite ease-in-out;
+}
+
+@keyframes status-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.app-main {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 36px 16px 24px;
+}
+
+.mode-panel {
+  width: 100%;
+  margin-top: 32px;
+  display: flex;
+  justify-content: center;
+}
+
+.app-footer {
+  position: relative;
+  z-index: 1;
+  padding: 20px;
+  color: #475569;
+  font-size: 0.8rem;
+  font-family: 'Inter', sans-serif;
+}
+
+@media (max-width: 480px) {
+  .app-title {
+    font-size: 1.2rem;
+  }
+
+  .orb-wrapper {
+    width: 220px !important;
+    height: 220px !important;
+  }
+
+  .orb-ring-outer {
+    width: 220px !important;
+    height: 220px !important;
+  }
+
+  .orb-ring-inner {
+    width: 170px !important;
+    height: 170px !important;
+  }
+
+  .orb {
+    width: 140px !important;
+    height: 140px !important;
+  }
+}
